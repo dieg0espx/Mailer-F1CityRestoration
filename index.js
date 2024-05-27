@@ -34,7 +34,7 @@ const data = [
 
 
 // Route to handle tracking requests
-app.get('/track/:emailId', (req, res) => {
+app.get('/image/:emailId', (req, res) => {
     const emailId = req.params.emailId;
     console.log(`Email with ID ${emailId} has been opened.`);
     res.send('https://f1cityrestoration.com/wp-content/uploads/2024/04/Group-150.png');
@@ -77,7 +77,7 @@ app.post('/sendEmail', async (req, res) => {
             name: data[i].name, 
             lastName:data[i].lastName, 
             id:data[i].id, 
-            imgURL: 'https://mailer-f1-city-restoration.vercel.app/track/:' + data[i].id
+            imgURL: 'https://mailer-f1-city-restoration.vercel.app/image/:' + data[i].id
           }
         };
   
