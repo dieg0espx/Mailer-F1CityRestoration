@@ -102,7 +102,7 @@ app.post('/sendEmail', async (req, res) => {
             name: data[i].name, 
             lastName:data[i].lastName, 
             id:data[i].id, 
-            imgURL: 'https://mailer-f1-city-restoration.vercel.app/' + data[i].id
+            imgURL: 'https://mailer-f1-city-restoration.vercel.app/track/' + data[i].id
           }
         };
   
