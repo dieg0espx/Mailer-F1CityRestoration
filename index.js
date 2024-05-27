@@ -37,7 +37,7 @@ const data = [
 app.get('/image/:emailId', (req, res) => {
     const emailId = req.params.emailId;
     console.log(`Email with ID ${emailId} has been opened.`);
-    res.send('https://f1cityrestoration.com/wp-content/uploads/2024/04/Group-150.png');
+    res.send('https://f1cityrestoration.com/wp-content/uploads/2024/05/pixel.png');
 });
 
 
