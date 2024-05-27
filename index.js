@@ -29,31 +29,7 @@ const data = [
         lastName: 'Espinosa',
         id: generateRandomId(),
         email: 'diego@f1cityrestoration.com'
-    },
-    // {
-    //     name: 'Maria',
-    //     lastName: 'Garcia',
-    //     id: generateRandomId(),
-    //     email: 'diego@f1cityrestoration.com'
-    // },
-    // {
-    //     name: 'John',
-    //     lastName: 'Doe',
-    //     id: generateRandomId(),
-    //     email: 'diego@f1cityrestoration.com'
-    // },
-    // {
-    //     name: 'Emma',
-    //     lastName: 'Johnson',
-    //     id: generateRandomId(),
-    //     email: 'diego@f1cityrestoration.com'
-    // },
-    // {
-    //     name: 'Michael',
-    //     lastName: 'Brown',
-    //     id: generateRandomId(),
-    //     email: 'diego@f1cityrestoration.com'
-    // }
+    }
 ];
 
 
@@ -61,7 +37,6 @@ const data = [
 app.get('/track/:emailId', (req, res) => {
     const emailId = req.params.emailId;
     console.log(`Email with ID ${emailId} has been opened.`);
-    // Respond with the tracking pixel (a transparent 1x1 gif)
     res.send('https://f1cityrestoration.com/wp-content/uploads/2024/04/Group-150.png');
 });
 
@@ -102,7 +77,7 @@ app.post('/sendEmail', async (req, res) => {
             name: data[i].name, 
             lastName:data[i].lastName, 
             id:data[i].id, 
-            imgURL: 'https://mailer-f1-city-restoration.vercel.app/track/' + data[i].id
+            imgURL: 'https://mailer-f1-city-restoration.vercel.app/track/:' + data[i].id
           }
         };
   
