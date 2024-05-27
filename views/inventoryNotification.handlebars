@@ -4,21 +4,96 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Lifeline for Homeowners: Assistance for Uninsured Homeowners Affected by Property Damage</title>
+     <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 15px;
+            background-color: white;
+            color: #333;
+        }
+
+        .red {
+            color: #c62b33;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .semi-bold {
+            font-weight: 600;
+        }
+        .lightBlue {
+            color: #74f4f6;
+        }
+        .gray {
+            color: #7f7f7f;
+        }
+
+        .block {
+            display: block;
+        }
+
+    
+        p {
+            margin: 10px 0;
+        }
+
+        a {
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .button {
+            background-color: #c62b33;
+            color: white;
+            margin: 50px auto;
+            width: 40%;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 20px;
+        }
+
+    </style>
 </head>
-<body style="margin:0; padding: 0;">
-    <div class="content" style=" width:100%; max-width: 1100px; margin:auto; ">
-        
-        <p style=" font-size:18px;font-weight:bold; margin-top:30px;">Hello {{name}} {{lastName}},   </p>
+<body>
+    <p>{{imgURL}} <p/>
+    <p> Hi {{name}} {{lastName}}, </p>   
+    
+    <p> At <a class="red bold" href="https://f1cityrestoration.com">F1 City Restoration</a>, we understand the challenges you face when disasters strike properties under your management, especially when homeowners or tenants lack insurance coverage. </p>
 
-        <p>{{imgURL}} <p/>
-        
+    <p> We're excited to announce our latest initiative aimed at providing support in these challenging situations.</p>
 
-        <p style="font-size:18px;"><b>ID: </b> {{id}}  </p>
-        <img src={{imgURL}} />
+    <p> Whether it's damage from floods, fires, leaks, or other catastrophic events, our experienced team is here to help restore peace and safety for those affected. </p>
 
-    </div>
+    <p> We believe that everyone deserves a secure living environment, regardless of their insurance status.  </p>
+
+    <p><b> What We Offer: </b></p>
+    
+    <li> Specialized restoration services for uninsured properties. </li>
+    <li> Expert handling of fire, flood, and other disaster-related damages. </li>
+    <li> Compassionate and efficient support for displaced homeowners and tenants. </li>
+
+    <p><b> Partner with Us: </b></p>
+
+    <li> Refer affected properties to our initiative. </li>
+    <li> Benefit from streamlined restoration processes. </li>
+    <li> Enhance your reputation by providing additional support to your clients. </li>
+
+    <p> Our commitment is to ensure that property damage doesn't mean the end of the road for those without insurance. Let's work together to rebuild lives and communities! </p>
+    <p> Contact us to learn more about how we can collaborate for a better, safer community. </p>
+
+    <br>
+    <a class="semi-bold gray block" href="tel:6047867989"> (604) 786-7989</a>
+    <a class="semi-bold lightBlue block" href="mailto:info@f1cityrestoration.com"> info@F1CityRestoration.com</a>
+    <a class="semi-bold gray block" href="https://f1cityrestoration.com"> F1CityRestoration.com </a>
+
+    <a class="block button" href="https://f1cityrestoration.com"> Learn More </a>
 
 </body>
 </html>
-
-
