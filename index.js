@@ -33,7 +33,7 @@ const data = [
 app.get('/image/:id', (req, res) => {
     const id = req.params.id;
     console.log(`Email with ID ${id} has been opened.`);
-    res.sendFile(path.join(__dirname, 'pixel.png')); // Adjust the path to your tracking pixel image
+    res.sendFile(path.join(__dirname, 'images/pixel.png')); // Adjust the path to your tracking pixel image
 });
 
 app.post('/sendEmail', async (req, res) => {
