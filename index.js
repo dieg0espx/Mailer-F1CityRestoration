@@ -7,6 +7,8 @@ const cors = require('cors');
 const axios = require('axios');
 
 
+
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -33,7 +35,7 @@ const data = [
     }
 ];
 
-app.get('/image/:email', (req, res) => {
+app.get('/image/:email', async (req, res) => {
     const email = req.params.email;
     const campaign = req.query.campaign;
   
@@ -47,14 +49,13 @@ app.get('/image/:email', (req, res) => {
           action: 'opened'
         };
     
-        fetch(apiURL + '/emailOpened.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-          },
-          body: JSON.stringify({ data: data })
-        });
+        await axios.post(apiURL + '/emailOpened.php', { data: data }, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
+            }
+          });
+      
     
     } catch (error) {
         console.error('Error calling external API:', error);
