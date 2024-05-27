@@ -32,7 +32,7 @@ app.get('/image/:email', async (req, res) => {
     try {
         const data = {
           email: email,
-          timestamp: new Date(),
+          timestamp: moment().tz('America/Vancouver'),
           campaign: campaign,
           action: 'opened'
         };
