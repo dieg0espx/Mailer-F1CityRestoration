@@ -1,5 +1,4 @@
 const express = require('express');
-const axios = require('axios');
 const nodemailer = require('nodemailer');
 const hbs = require('nodemailer-express-handlebars');
 const path = require('path');
@@ -11,8 +10,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
 
 function generateRandomId() {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -32,81 +29,64 @@ const data = [
     }
 ];
 
-
 // Route to handle tracking requests
-app.get('/image/:emailId', (req, res) => {
-    const emailId = req.params.emailId;
-    console.log(`Email with ID ${emailId} has been opened.`);
-    res.send('https://f1cityrestoration.com/wp-content/uploads/2024/05/pixel.png');
+app.get('/image/:id', (req, res) => {
+    const id = req.params.id;
+    console.log(`Email with ID ${id} has been opened.`);
+    res.sendFile(path.join(__dirname, 'pixel.png')); // Adjust the path to your tracking pixel image
 });
 
-
-
-
 app.post('/sendEmail', async (req, res) => {
-    
-
     try {
-      const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: 'diego@ttfscaffolding.com',
-          pass: 'rxrrntgbzhqigqso' // Ensure this is secured
-        }
-      });
-      const handlebarOptions = {
-        viewEngine: {
-          extName: ".handlebars",
-          partialsDir: path.resolve('./views'),
-          defaultLayout: false,
-        },
-        viewPath: path.resolve('./views'),
-        extName: ".handlebars",
-      };
-      transporter.use('compile', hbs(handlebarOptions));
-      
-      
-
-      for (let i = 0; i < data.length; i++) {
-        const customerMailOptions = {
-          from: 'TTF SCAFFOLDING',
-          to:data[i].email,
-          subject: 'Email Attempt ',
-          template: 'inventoryNotification',
-          context: {
-            name: data[i].name, 
-            lastName:data[i].lastName, 
-            id:data[i].id, 
-            imgURL: 'https://mailer-f1-city-restoration.vercel.app/image/:' + data[i].id
-          }
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'diego@ttfscaffolding.com',
+                pass: 'rxrrntgbzhqigqso' // Ensure this is secured
+            }
+        });
+        
+        const handlebarOptions = {
+            viewEngine: {
+                extName: '.handlebars',
+                partialsDir: path.resolve('./views'),
+                defaultLayout: false,
+            },
+            viewPath: path.resolve('./views'),
+            extName: '.handlebars',
         };
-  
-        try {
-          await transporter.sendMail(customerMailOptions);
-          console.log('Email sent to: ' + data[i].email);
-        } catch (error) {
-          console.error('Error sending email to:', data[i].email, error);
+        transporter.use('compile', hbs(handlebarOptions));
+
+        for (let i = 0; i < data.length; i++) {
+            const customerMailOptions = {
+                from: 'TTF SCAFFOLDING',
+                to: data[i].email,
+                subject: 'Email Attempt',
+                template: 'inventoryNotification',
+                context: {
+                    name: data[i].name,
+                    lastName: data[i].lastName,
+                    id: data[i].id,
+                    imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${data[i].id}`
+                }
+            };
+
+            try {
+                await transporter.sendMail(customerMailOptions);
+                console.log('Email sent to:', data[i].email);
+            } catch (error) {
+                console.error('Error sending email to:', data[i].email, error);
+            }
         }
-      }
-  
-      res.status(200).send('Emails sent successfully');
+
+        res.status(200).send('Emails sent successfully');
     } catch (error) {
-      console.error('Error:', error);
-      res.status(500).send('Error sending emails');
+        console.error('Error:', error);
+        res.status(500).send('Error sending emails');
     }
-
-})
-
-
-
-
-
-
-
-
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-
