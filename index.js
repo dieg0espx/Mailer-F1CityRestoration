@@ -5,7 +5,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const axios = require('axios');
-const moment = require('moment-timezone');
 
 
 const app = express();
@@ -30,11 +29,17 @@ app.get('/image/:email', async (req, res) => {
     const campaign = req.query.campaign;
   
     console.log(`Email ${email} at campaign ${campaign} has been opened.`);
+    const currentTime = new Date();
+    const timeVancouver = new Date(currentTime.getTime() - (7 * 60 * 60 * 1000));
+    if (timeVancouver.getDate() !== currentTime.getDate()) {
+        timeVancouver.setDate(timeVancouver.getDate() - 1);
+    }
+
 
     try {
         const data = {
           email: email,
-          timestamp: moment().tz('America/Vancouver'),
+          timestamp: timeVancouver,
           campaign: campaign,
           action: 'opened'
         };
