@@ -6,9 +6,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const axios = require('axios');
 
-
-
-
 const app = express();
 
 app.use(bodyParser.json());
@@ -17,20 +14,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const apiURL = 'https://api.f1cityrestoration.com'
 
-function generateRandomId() {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let id = '';
-    for (let i = 0; i < 5; i++) {
-        id += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    return id;
-}
 
 const data = [
     {
         name: 'Diego',
         lastName: 'Espinosa',
-        id: generateRandomId(),
         email: 'diego@f1cityrestoration.com'
     }
 ];
@@ -101,7 +89,6 @@ app.post('/sendEmail', async (req, res) => {
                 context: { 
                     name: data[i].name,
                     lastName: data[i].lastName,
-                    id: data[i].id,
                     imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${data[i].email}?campaign=Campaign1`
                 }
             };
@@ -121,35 +108,6 @@ app.post('/sendEmail', async (req, res) => {
     }
 });
 
-
-
-app.get('/newOpened', async (req, res) => {
-    try {
-      const data = {
-        email: 'example@example.com',
-        timestamp: '2024-05-30T12:00:00Z',
-        campaign: 'sample_campaign',
-        action: 'opened'
-      };
-  
-      const response = await fetch(apiURL + '/emailOpened.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify({ data: data })
-      });
-  
-      const jsonResponse = await response.json();
-      console.log(jsonResponse);
-  
-      res.status(200).json({ status: 200, message: 'Successfully called the external endpoint' });
-    } catch (error) {
-      console.error('Error calling external API:', error);
-      res.status(500).json({ status: 500, error: 'Failed to call the external endpoint' });
-    }
-  });
 
 
 const PORT = process.env.PORT || 3000;
