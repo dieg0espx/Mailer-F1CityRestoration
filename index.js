@@ -78,24 +78,34 @@ app.post('/sendEmail', async (req, res) => {
         };
         transporter.use('compile', hbs(handlebarOptions));
 
-        for (let i = 0; i < data.length; i++) {
-            const customerMailOptions = {
-                from: 'F1 CITY RESTORATION',
-                to: data[i].email,
-                subject: 'Lifeline for Homeowners: Assistance for Uninsured Homeowners Affected by Property Damage',
-                template: 'propertyManagers1',
-                context: { 
-                    name: data[i].name,
-                    lastName: data[i].lastName,
-                    imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${data[i].email}?campaign=PropertyManagers1`
-                }
-            };
+        const DELAY_BETWEEN_BATCHES = 60000; // 1 minute in milliseconds
+        const BATCH_SIZE = 50;
 
-            try {
-                await transporter.sendMail(customerMailOptions);
-                console.log(i + ' / ' + data.length + '-  Email sent to:', data[i].email);
-            } catch (error) {
-                console.error('Error sending email to:', data[i].email, error);
+        for (let i = 79; i < data.length; i += BATCH_SIZE) {
+            const batch = data.slice(i, i + BATCH_SIZE);
+            for (let j = 0; j < batch.length; j++) {
+                const customerMailOptions = {
+                    from: 'F1 CITY RESTORATION',
+                    to: data[i].email,
+                    subject: 'Lifeline for Homeowners: Assistance for Uninsured Homeowners Affected by Property Damage',
+                    template: 'propertyManagers1',
+                    context: { 
+                        name: data[i].name,
+                        lastName: data[i].lastName,
+                        imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${data[i].email}?campaign=PropertyManagers1`
+                    }
+                }
+                try {
+                    await transporter.sendMail(customerMailOptions);
+                    console.log(i + j + ' / ' + data.length + '-  Email sent to:', batch[j].email);
+                } catch (error) {
+                    console.error('Error sending email to:', batch[j].email, error);
+                }
+            }
+            // Pause for 1 minute after sending each batch
+            if (i + BATCH_SIZE < data.length) {
+                console.log('Pausing for 1 minute...');
+                await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_BATCHES));
             }
         }
 
