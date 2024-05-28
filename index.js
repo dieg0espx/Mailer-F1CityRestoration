@@ -79,12 +79,12 @@ app.post('/sendEmail', async (req, res) => {
             const customerMailOptions = {
                 from: 'F1 CITY RESTORATION',
                 to: data[i].email,
-                subject: 'Email Attempt',
-                template: 'inventoryNotification',
+                subject: 'Lifeline for Homeowners: Assistance for Uninsured Homeowners Affected by Property Damage',
+                template: 'propertyManagers1',
                 context: { 
                     name: data[i].name,
                     lastName: data[i].lastName,
-                    imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${data[i].email}?campaign=Campaign1`
+                    imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${data[i].email}?campaign=Property Managers 1`
                 }
             };
 
