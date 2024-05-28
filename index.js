@@ -15,13 +15,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const apiURL = 'https://api.f1cityrestoration.com'
 
-const data = [
-    {
-        name: 'Diego',
-        lastName: 'Espinosa',
-        email: 'diego@f1cityrestoration.com'
-    }
-];
+
+let data;
+
+async function getContacts(){
+    await fetch(apiURL + '/getContacts.php')
+    .then(result => result.json())
+    .then(result => data = result)
+}
+
 
 app.get('/image/:email', async (req, res) => {
     const email = req.params.email;
@@ -55,12 +57,13 @@ app.get('/image/:email', async (req, res) => {
 });
   
 app.post('/sendEmail', async (req, res) => {
+    await getContacts()
     try {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'diego@f1cityrestoration.com',
-                pass: 'pofhpvxkkunxmoja'
+                user: 'info@f1cityrestoration.com',
+                pass: 'fzbkndwuhxuhvvnu'
             }
         });
         
@@ -90,7 +93,7 @@ app.post('/sendEmail', async (req, res) => {
 
             try {
                 await transporter.sendMail(customerMailOptions);
-                console.log('Email sent to:', data[i].email);
+                console.log(i + ' / ' + data.length + '-  Email sent to:', data[i].email);
             } catch (error) {
                 console.error('Error sending email to:', data[i].email, error);
             }
