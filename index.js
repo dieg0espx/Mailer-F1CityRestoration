@@ -38,7 +38,7 @@ app.get('/image/:email', async (req, res) => {
           email: email,
           timestamp: timeVancouver,
           campaign: campaign,
-          action: 'opened'
+          action: 'delivered'
         };
     
         await axios.post(apiURL + '/emailOpened.php', { data: data }, {
