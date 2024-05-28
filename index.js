@@ -81,20 +81,20 @@ app.post('/sendEmail', async (req, res) => {
         const DELAY_BETWEEN_BATCHES = 60000; // 1 minute in milliseconds
         const BATCH_SIZE = 10;
 
-        for (let i = 87; i < data.length; i += BATCH_SIZE) {
+        for (let i = 145; i < data.length; i += BATCH_SIZE) {
             const batch = data.slice(i, i + BATCH_SIZE);
             for (let j = 0; j < batch.length; j++) {
                 const customerMailOptions = {
                     from: 'F1 CITY RESTORATION',
-                    to: data[i].email,
+                    to: batch[j].email, // Corrected: Use batch[j] instead of data[i]
                     subject: 'Lifeline for Homeowners: Assistance for Uninsured Homeowners Affected by Property Damage',
                     template: 'propertyManagers1',
                     context: { 
-                        name: data[i].name,
-                        lastName: data[i].lastName,
-                        imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${data[i].email}?campaign=PropertyManagers1`
+                        name: batch[j].name, // Corrected: Use batch[j] instead of data[i]
+                        lastName: batch[j].lastName, // Corrected: Use batch[j] instead of data[i]
+                        imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${batch[j].email}?campaign=PropertyManagers1`
                     }
-                }
+                };
                 try {
                     await transporter.sendMail(customerMailOptions);
                     console.log(i + j + ' / ' + data.length + '-  Email sent to:', batch[j].email);
