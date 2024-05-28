@@ -13,9 +13,12 @@
             font-family: "Montserrat", sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 25px;
             background-color: white;
             color: #333;
+        }
+
+        .content {
+            padding: 10px;
         }
 
         .red {
@@ -41,6 +44,7 @@
     
         p {
             margin: 10px 0;
+            font-size: 15px;
         }
 
         a {
@@ -53,47 +57,268 @@
             color: white !important;
             margin: 50px auto;
             width: 40%;
-            height: 40px;
+            min-width: 250px;
+            max-width: 400px;
+            height: 45px;
             text-align: center;
-            line-height: 40px;
+            line-height: 45px;
             border-radius: 20px;
+        }
+
+        .logo {
+            display: block;
+            margin: auto;
+            width: 35%;
+            min-width: 280px;
+        }
+        .van {
+            display: block;
+            margin: 100px auto 50px auto;
+            width: 50%;
+            max-width: 660px;
+            min-width: 300px;
+        }
+        hr {
+            background-color: lightgray;
+            max-width: 80%;
+            min-width: 250px;
+        }
+        h2 {
+            font-size: 40px;
+            color: #1f2533;
+            text-align: center;
+        }
+        .other-services {
+            width: 90%;
+            margin: auto;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: row;
+            gap: 3%;
+            text-align: center;
+        }
+        .other-services img {
+            border-radius: 15px;
+            width: 90%;
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+        }
+        .other-services h3 {
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+        .other-services p {
+            font-size: 15px;
+        }
+
+        .other-services-mobile {
+            width: 90%;
+            margin: auto;
+            margin-bottom: 50px;
+            display: none;
+            gap: 3%;
+            text-align: center;
+        }
+        .other-services-mobile img {
+            border-radius: 15px;
+            width: 90%;
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            margin-top: 50px;
+        }
+        .other-services-mobile h3 {
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+        .other-services-mobile p {
+            font-size: 15px;
+        }
+
+
+
+        .socialMedia {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10%;
+            margin:auto;
+            width: fit-content;
+        }
+        .socialMedia img {
+            width: 50px;
+            display: block;
+            margin: 20px;
+        }
+
+
+        .footer {
+            background-color: #1f2533;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: right;
+        }
+        .footer img {
+            display:block;
+            width: 20%;
+            margin: auto auto auto 0;
+        }
+        .footer a {
+            text-align: right;
+            color: white;
+            display: block;
+        }
+
+        .footer-mobile {
+            background-color: #1f2533;
+            display: none;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: right;
+        }
+        .footer-mobile img {
+            display:block;
+            width: 50%;
+            margin: 30px auto;
+        }
+        .footer-mobile a {
+            text-align: center;
+            color: white;
+            display: block;
+            margin: 10px;
+        }
+
+
+
+        @media screen and (max-width:700px) {
+            h2 {
+                line-height: 45px;
+            }
+            .other-services {
+               display: none;
+            }
+            .other-services-mobile {
+               display: block;
+            }
+            .footer {
+                display: none;
+            }
+            .footer-mobile {
+                display: block;
+            }
         }
 
     </style>
 </head>
 <body>
-    <img src={{imgURL}}/>
-    <p> Hi {{name}} {{lastName}}, </p>   
-    
-    <p> At <a class="red bold" href="https://f1cityrestoration.com">F1 City Restoration</a>, we understand the challenges you face when disasters strike properties under your management, especially when homeowners or tenants lack insurance coverage. </p>
+    <div class="content">
+        <img class="logo" src="https://f1cityrestoration.com/wp-content/uploads/2024/05/group-logo.png" />
+        <img src={{imgURL}}/>
+        <p> Hi {{name}} {{lastName}}, </p>   
 
-    <p> We're excited to announce our latest initiative aimed at providing support in these challenging situations.</p>
+        <p> At <a class="red bold" href="https://f1cityrestoration.com">F1 City Restoration</a>, we understand the challenges you face when disasters strike properties under your management, especially when homeowners or tenants lack insurance coverage. </p>
 
-    <p> Whether it's damage from floods, fires, leaks, or other catastrophic events, our experienced team is here to help restore peace and safety for those affected. </p>
+        <p> We're excited to announce our latest initiative aimed at providing support in these challenging situations.</p>
 
-    <p> We believe that everyone deserves a secure living environment, regardless of their insurance status.  </p>
+        <p> Whether it's damage from floods, fires, leaks, or other catastrophic events, our experienced team is here to help restore peace and safety for those affected. </p>
 
-    <p><b> What We Offer: </b></p>
-    
-    <li> Specialized restoration services for uninsured properties. </li>
-    <li> Expert handling of fire, flood, and other disaster-related damages. </li>
-    <li> Compassionate and efficient support for displaced homeowners and tenants. </li>
+        <p> We believe that everyone deserves a secure living environment, regardless of their insurance status.  </p>
 
-    <p><b> Partner with Us: </b></p>
+        <p><b> What We Offer: </b></p>
 
-    <li> Refer affected properties to our initiative. </li>
-    <li> Benefit from streamlined restoration processes. </li>
-    <li> Enhance your reputation by providing additional support to your clients. </li>
+        <li> Specialized restoration services for uninsured properties. </li>
+        <li> Expert handling of fire, flood, and other disaster-related damages. </li>
+        <li> Compassionate and efficient support for displaced homeowners and tenants. </li>
 
-    <p> Our commitment is to ensure that property damage doesn't mean the end of the road for those without insurance. Let's work together to rebuild lives and communities! </p>
-    <p> Contact us to learn more about how we can collaborate for a better, safer community. </p>
+        <p><b> Partner with Us: </b></p>
 
-    <br>
-    <a class="semi-bold gray block" href="tel:6047867989"> (604) 786-7989</a>
-    <a class="semi-bold lightBlue block" href="mailto:info@f1cityrestoration.com"> info@F1CityRestoration.com</a>
-    <a class="semi-bold gray block" href="https://f1cityrestoration.com"> F1CityRestoration.com </a>
+        <li> Refer affected properties to our initiative. </li>
+        <li> Benefit from streamlined restoration processes. </li>
+        <li> Enhance your reputation by providing additional support to your clients. </li>
 
-    <a class="block button" href="https://f1cityrestoration.com"> Learn More </a>
+        <p> Our commitment is to ensure that property damage doesn't mean the end of the road for those without insurance. Let's work together to rebuild lives and communities! </p>
+        <p> Contact us to learn more about how we can collaborate for a better, safer community. </p>
 
+        <br>
+        <a class="semi-bold gray block" href="tel:6047867989"> (604) 786-7989</a>
+        <a class="semi-bold lightBlue block" href="mailto:info@f1cityrestoration.com"> info@F1CityRestoration.com</a>
+        <a class="semi-bold gray block" href="https://f1cityrestoration.com"> F1CityRestoration.com </a>
+
+        <a class="block button" href="https://f1cityrestoration.com"> Learn More </a>
+
+        <img class="van" src="https://f1cityrestoration.com/wp-content/uploads/2024/04/van-copy-1.png" />
+
+        <hr>
+
+        <h2> Explore Our Diverse Solutions </h2>
+
+        <div class="other-services">
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/Water-3.png" />
+                <h3> Water Damage </h3>
+                <p> We offer a unique and speedy approach to repairing structures damaged by water. Whether it's from broken pipes, malfunctioning appliances, storms, floods, sewage backups, or extinguishing fires, we ensure swift restoration with F1 City Restoration. </p>
+            </div>
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/Water-1.png" />
+                <h3> Reconstruction </h3>
+                <p> Our expertise lies in post-disaster repair and reconstruction for both residential and commercial properties. We provide expert evaluation, precise estimates, and a meticulous multi-step approach to ensure prompt and efficient restoration with F1 City Restoration. </p>
+            </div>
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/Water-2.png" />
+                <h3> Hazard Remediation </h3>
+                <p> From mold to asbestos and lead, we offer specialized services for residential and commercial properties. With a scientific approach and strict safety measures, we prioritize the health and well-being of occupants and the structure through F1 City Restoration. </p>
+            </div>
+        </div>
+        <div class="other-services-mobile">
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/Water-3.png" />
+                <h3> Water Damage </h3>
+                <p> We offer a unique and speedy approach to repairing structures damaged by water. Whether it's from broken pipes, malfunctioning appliances, storms, floods, sewage backups, or extinguishing fires, we ensure swift restoration with F1 City Restoration. </p>
+            </div>
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/Water-1.png" />
+                <h3> Reconstruction </h3>
+                <p> Our expertise lies in post-disaster repair and reconstruction for both residential and commercial properties. We provide expert evaluation, precise estimates, and a meticulous multi-step approach to ensure prompt and efficient restoration with F1 City Restoration. </p>
+            </div>
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/Water-2.png" />
+                <h3> Hazard Remediation </h3>
+                <p> From mold to asbestos and lead, we offer specialized services for residential and commercial properties. With a scientific approach and strict safety measures, we prioritize the health and well-being of occupants and the structure through F1 City Restoration. </p>
+            </div>
+        </div>
+
+        <div class="socialMedia">
+            <a href="https://www.facebook.com/f1cityrestoration"> <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/unnamed.png" /></a>
+            <a href="https://www.instagram.com/f1cityrestoration"> <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/unnamed-1.png" /></a>
+            <a href="https://www.youtube.com/@f1cityrestorationltd.883"> <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/unnamed-2.png" /></a>
+        </div>
+    </div>
+    <div class="footer">
+        <div>
+            <img src="https://f1cityrestoration.com/wp-content/uploads/2024/04/F1-City-Restoration-V2_clipped_rev_1-3.png" />
+        </div>
+        <div>
+            <a href="tel:6047867989"> (604) 786-7989</a>
+            <a class="lightBlue" href="mailto:info@f1cityrestoration.com"> info@F1CityRestoration.com</a>
+            <a href="https://f1cityrestoration.com"> F1CityRestoration.com </a>
+        </div>
+    </div>
+
+     <div class="footer-mobile">
+        <div>
+            <img src="https://f1cityrestoration.com/wp-content/uploads/2024/04/F1-City-Restoration-V2_clipped_rev_1-3.png" />
+        </div>
+        <div>
+            <a href="tel:6047867989"> (604) 786-7989</a>
+            <a class="lightBlue" href="mailto:info@f1cityrestoration.com"> info@F1CityRestoration.com</a>
+            <a href="https://f1cityrestoration.com"> F1CityRestoration.com </a>
+        </div>
+    </div>
 </body>
 </html>

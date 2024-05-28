@@ -15,7 +15,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const apiURL = 'https://api.f1cityrestoration.com'
 
-
 const data = [
     {
         name: 'Diego',
@@ -34,8 +33,6 @@ app.get('/image/:email', async (req, res) => {
     if (timeVancouver.getDate() !== currentTime.getDate()) {
         timeVancouver.setDate(timeVancouver.getDate() - 1);
     }
-
-
     try {
         const data = {
           email: email,
@@ -50,29 +47,20 @@ app.get('/image/:email', async (req, res) => {
               'Access-Control-Allow-Origin': '*'
             }
           });
-      
-    
     } catch (error) {
         console.error('Error calling external API:', error);
         res.status(500).json({ status: 500, error: 'Failed to call the external endpoint' });
     }
-
-
-
-
     res.sendFile(path.join(__dirname, 'images/pixel.png'));
 });
   
-
-
-
 app.post('/sendEmail', async (req, res) => {
     try {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'diego@ttfscaffolding.com',
-                pass: 'rxrrntgbzhqigqso' // Ensure this is secured
+                user: 'diego@f1cityrestoration.com',
+                pass: 'pofhpvxkkunxmoja'
             }
         });
         
@@ -89,7 +77,7 @@ app.post('/sendEmail', async (req, res) => {
 
         for (let i = 0; i < data.length; i++) {
             const customerMailOptions = {
-                from: 'TTF SCAFFOLDING',
+                from: 'F1 CITY RESTORATION',
                 to: data[i].email,
                 subject: 'Email Attempt',
                 template: 'inventoryNotification',
@@ -117,7 +105,7 @@ app.post('/sendEmail', async (req, res) => {
 
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
