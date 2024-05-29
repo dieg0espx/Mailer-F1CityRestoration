@@ -85,7 +85,7 @@ app.post('/sendEmail', async (req, res) => {
             const batch = data.slice(i, i + BATCH_SIZE);
             for (let j = 0; j < batch.length; j++) {
                 const customerMailOptions = {
-                    from: 'F1 CITY RESTORATION',
+                    from: 'info@f1cityrestoration.com',
                     to: batch[j].email, // Corrected: Use batch[j] instead of data[i]
                     subject: 'Lifeline for Homeowners: Assistance for Uninsured Homeowners Affected by Property Damage',
                     template: 'propertyManagers1',
