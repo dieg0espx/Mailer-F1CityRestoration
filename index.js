@@ -93,7 +93,7 @@ app.post('/sendEmail', async (req, res) => {
                     context: { 
                         name: batch[j].name,
                         lastName: batch[j].lastName,
-                        name: batch[j].company,
+                        company: batch[j].company,
                         imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${batch[j].email}?campaign=Adjusters1`
                     }
                 };
