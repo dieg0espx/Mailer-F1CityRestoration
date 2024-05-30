@@ -88,12 +88,13 @@ app.post('/sendEmail', async (req, res) => {
                 const customerMailOptions = {
                     from: 'info@f1cityrestoration.com',
                     to: batch[j].email, // Corrected: Use batch[j] instead of data[i]
-                    subject: 'Lifeline for Homeowners: Assistance for Uninsured Homeowners Affected by Property Damage',
-                    template: 'propertyManagers1',
+                    subject: 'Collaborative Opportunity: Enhancing Service Offerings with F1 City Restoration',
+                    template: 'adjusters1',
                     context: { 
-                        name: batch[j].name, // Corrected: Use batch[j] instead of data[i]
-                        lastName: batch[j].lastName, // Corrected: Use batch[j] instead of data[i]
-                        imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${batch[j].email}?campaign=PropertyManagers1`
+                        name: batch[j].name,
+                        lastName: batch[j].lastName,
+                        name: batch[j].company,
+                        imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${batch[j].email}?campaign=Adjusters1`
                     }
                 };
                 try {
