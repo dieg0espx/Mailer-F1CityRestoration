@@ -55,6 +55,41 @@ app.get('/image/:email', async (req, res) => {
     }
     res.sendFile(path.join(__dirname, 'images/pixel.png'));
 });
+
+
+app.get('/callToAction/:email', async (req, res) => {
+    const email = req.params.email;
+    const campaign = req.query.campaign;
+  
+    console.log(`Email ${email} at campaign ${campaign} has been Called to Action.`);
+    const currentTime = new Date();
+    const timeVancouver = new Date(currentTime.getTime() - (7 * 60 * 60 * 1000));
+    if (timeVancouver.getDate() !== currentTime.getDate()) {
+        timeVancouver.setDate(timeVancouver.getDate() - 1);
+    }
+    try {
+        const data = {
+          email: email,
+          timestamp: timeVancouver,
+          campaign: campaign,
+          action: 'clicked'
+        };
+    
+        await axios.post(apiURL + '/newCallToAction.php', { data: data }, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
+            }
+          });
+    } catch (error) {
+        console.error('Error calling external API:', error);
+        res.status(500).json({ status: 500, error: 'Failed to call the external endpoint' });
+    }
+    res.send('https://f1cityrestoration.com');
+});
+
+
+
   
 app.post('/sendEmail', async (req, res) => {
     await getContacts()
@@ -146,7 +181,8 @@ app.post('/sendTest', async (req, res) => {
                 name: 'Diego',
                 lastName: 'Espinosa',
                 company: "Company Name", 
-                imgURL: `https://mailer-f1-city-restoration.vercel.app/image/diego@f1cityrestoration.com?campaign=Adjusters1`
+                imgURL: `https://mailer-f1-city-restoration.vercel.app/image/diego@f1cityrestoration.com?campaign=Adjusters1`, 
+                callToAction: "https://mailer-f1-city-restoration.vercel.app/callToAction/diego@f1cityrestoration.com?campaign=Adjusters1"
             }
         };
         try {
