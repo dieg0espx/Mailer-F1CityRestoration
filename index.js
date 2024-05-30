@@ -19,7 +19,7 @@ const apiURL = 'https://api.f1cityrestoration.com'
 let data;
 
 async function getContacts(){
-    await fetch(apiURL + '/getContacts.php')
+    await fetch(apiURL + '/getAdjusters.php')
     .then(result => result.json())
     .then(result => data = result)
 }
