@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title> Collaborative Opportunity: Enhancing Service Offerings with F1 City Restoration </title>
+     <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: white;
+            color: #333;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .red {
+            color: #c62b33 !important;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .semi-bold {
+            font-weight: 600;
+        }
+        .lightBlue {
+            color: #74f4f6 !important;
+        }
+        .gray {
+            color: #7f7f7f !important;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .subtitle {
+            font-size: 25px;
+            margin: 20px 0;
+        }
+
+    
+        p {
+            margin: 10px 0;
+            font-size: 15px;
+        }
+
+        a {
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .button {
+            background-color: #c62b33;
+            color: white !important;
+            margin: 50px auto;
+            width: 40%;
+            min-width: 250px;
+            max-width: 400px;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 20px;
+        }
+
+        .logo {
+            display: block;
+            margin: auto;
+            width: 35%;
+            min-width: 280px;
+        }
+        .van {
+            display: block;
+            margin: 100px auto 50px auto;
+            width: 50%;
+            max-width: 660px;
+            min-width: 300px;
+        }
+        hr {
+            background-color: lightgray;
+            max-width: 80%;
+            min-width: 250px;
+        }
+        h2 {
+            font-size: 40px;
+            color: #1f2533;
+            text-align: center;
+        }
+        ul {
+            margin: 20px 0;
+            margin-left: -20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .other-services {
+            width: 90%;
+            margin: auto;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: row;
+            gap: 3%;
+            text-align: center;
+        }
+        .other-services img {
+            border-radius: 15px;
+            width: 90%;
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+        }
+        .other-services h3 {
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+        .other-services p {
+            font-size: 15px;
+        }
+
+        .other-services-mobile {
+            width: 90%;
+            margin: auto;
+            margin-bottom: 50px;
+            display: none;
+            gap: 3%;
+            text-align: center;
+        }
+        .other-services-mobile img {
+            border-radius: 15px;
+            width: 90%;
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            margin-top: 50px;
+        }
+        .other-services-mobile h3 {
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+        .other-services-mobile p {
+            font-size: 15px;
+            padding: 10px;
+        }
+
+
+
+        .socialMedia {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10%;
+            margin:auto;
+            width: fit-content;
+        }
+        .socialMedia img {
+            width: 50px;
+            display: block;
+            margin: 20px;
+        }
+
+
+        .footer {
+            background-color: #1f2533;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: right;
+        }
+        .footer img {
+            display:block;
+            width: 20%;
+            margin: auto auto auto 0;
+        }
+        .footer a {
+            text-align: right;
+            color: white;
+            display: block;
+        }
+
+        .footer-mobile {
+            background-color: #1f2533;
+            display: none;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: right;
+        }
+        .footer-mobile img {
+            display:block;
+            width: 50%;
+            margin: 30px auto;
+        }
+        .footer-mobile a {
+            text-align: center;
+            color: white;
+            display: block;
+            margin: 10px;
+        }
+
+
+
+        @media screen and (max-width:700px) {
+            h2 {
+                line-height: 45px;
+            }
+            .other-services {
+               display: none;
+            }
+            .other-services-mobile {
+               display: block;
+            }
+            .footer {
+                display: none;
+            }
+            .footer-mobile {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <img class="logo" src="https://f1cityrestoration.com/wp-content/uploads/2024/05/group-logo.png" />
+        <img src={{imgURL}}/>
+        <p> Dear {{name}} {{lastName}}, </p>   
+
+        <p> I hope this message finds you well. </p>
+
+        <p> I am Vanja, the Client Director at <a class="red bold" href="https://f1cityrestoration.com">F1 City Restoration</a>. We specialize in emergency water damage restoration services, providing swift and efficient solutions for occupied residential and commercial units. </p>
+
+        <p> Our expertise also extends to collaborating closely with insurance companies to streamline claims processing and restoration work. We are reaching out to explore a collaborative partnership with {{company}} </p>
+
+        <p> We understand the critical role you play in advising clients during unforeseen incidents like water damage. By partnering with us, you can enhance your service offerings, ensuring your clients receive immediate professional help when they need it most. </p>
+
+        <p> We believe that everyone deserves a secure living environment, regardless of their insurance status.  </p>
+
+        <p class="subtitle lightBlue"><b> Our proposal is straightforward:</b></p>
+        
+        <ul>
+            <li> <b>Referral Partnership: </b> For each client referred to us, we would be pleased to offer a referral fee. This not only provides additional value to your services but also ensures your clients receive the highest standard of restoration care promptly. </li>
+            <li> <b>Reliability and Expertise: </b> With years of experience and a focus on quality and rapid response, we ensure minimal disruption and optimal restoration, aligning with the high standards your clients expect. </li>
+            <li> <b>Communication and Transparency: </b> We prioritize clear communication and detailed documentation to support claim processes, making it easier for your clients to navigate their restoration journey with confidence. </li>
+        </ul>
+       
+
+
+        <p> We are excited about the potential of working together and would love to discuss this further at your convenience. Please let me know a suitable time for a call or if you prefer a face-to-face meeting. We are keen to tailor our collaboration in a way that best suits your needs and those of your clients. </p>
+
+        <p> Thank you for considering this opportunity. I look forward to the possibility of our companies working together to bring added value and peace of mind to your clients. </p>
+
+        <p> Warm regards,</p>
+
+        <br>
+        <a class="semi-bold gray block" href="tel:6047867989"> (604) 786-7989</a>
+        <a class="semi-bold lightBlue block" href="mailto:info@f1cityrestoration.com"> info@F1CityRestoration.com</a>
+        <a class="semi-bold gray block" href="https://f1cityrestoration.com"> F1CityRestoration.com </a>
+
+        <a class="block button" href="https://f1cityrestoration.com"> Learn More </a>
+
+        <img class="van" src="https://f1cityrestoration.com/wp-content/uploads/2024/04/van-copy-1.png" />
+
+        <hr>
+
+        <h2> Explore Our Diverse Solutions </h2>
+
+        <div class="other-services">
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/Water-3.png" />
+                <h3> Water Damage </h3>
+                <p> We offer a unique and speedy approach to repairing structures damaged by water. Whether it's from broken pipes, malfunctioning appliances, storms, floods, sewage backups, or extinguishing fires, we ensure swift restoration with F1 City Restoration. </p>
+            </div>
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/Water-1.png" />
+                <h3> Reconstruction </h3>
+                <p> Our expertise lies in post-disaster repair and reconstruction for both residential and commercial properties. We provide expert evaluation, precise estimates, and a meticulous multi-step approach to ensure prompt and efficient restoration with F1 City Restoration. </p>
+            </div>
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/Water-2.png" />
+                <h3> Hazard Remediation </h3>
+                <p> From mold to asbestos and lead, we offer specialized services for residential and commercial properties. With a scientific approach and strict safety measures, we prioritize the health and well-being of occupants and the structure through F1 City Restoration. </p>
+            </div>
+        </div>
+        <div class="other-services-mobile">
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/Water-3.png" />
+                <h3> Water Damage </h3>
+                <p> We offer a unique and speedy approach to repairing structures damaged by water. Whether it's from broken pipes, malfunctioning appliances, storms, floods, sewage backups, or extinguishing fires, we ensure swift restoration with F1 City Restoration. </p>
+            </div>
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/Water-1.png" />
+                <h3> Reconstruction </h3>
+                <p> Our expertise lies in post-disaster repair and reconstruction for both residential and commercial properties. We provide expert evaluation, precise estimates, and a meticulous multi-step approach to ensure prompt and efficient restoration with F1 City Restoration. </p>
+            </div>
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/Water-2.png" />
+                <h3> Hazard Remediation </h3>
+                <p> From mold to asbestos and lead, we offer specialized services for residential and commercial properties. With a scientific approach and strict safety measures, we prioritize the health and well-being of occupants and the structure through F1 City Restoration. </p>
+            </div>
+        </div>
+
+        <div class="socialMedia">
+            <a href="https://www.facebook.com/f1cityrestoration"> <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/unnamed.png" /></a>
+            <a href="https://www.instagram.com/f1cityrestoration"> <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/unnamed-1.png" /></a>
+            <a href="https://www.youtube.com/@f1cityrestorationltd.883"> <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/unnamed-2.png" /></a>
+        </div>
+    </div>
+    <div class="footer">
+        <div>
+            <img src="https://f1cityrestoration.com/wp-content/uploads/2024/04/F1-City-Restoration-V2_clipped_rev_1-3.png" />
+        </div>
+        <div>
+            <a href="tel:6047867989"> (604) 786-7989</a>
+            <a class="lightBlue" href="mailto:info@f1cityrestoration.com"> info@F1CityRestoration.com</a>
+            <a href="https://f1cityrestoration.com"> F1CityRestoration.com </a>
+        </div>
+    </div>
+
+     <div class="footer-mobile">
+        <div>
+            <img src="https://f1cityrestoration.com/wp-content/uploads/2024/04/F1-City-Restoration-V2_clipped_rev_1-3.png" />
+        </div>
+        <div>
+            <a href="tel:6047867989"> (604) 786-7989</a>
+            <a class="lightBlue" href="mailto:info@f1cityrestoration.com"> info@F1CityRestoration.com</a>
+            <a href="https://f1cityrestoration.com"> F1CityRestoration.com </a>
+        </div>
+    </div>
+</body>
+</html>

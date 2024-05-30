@@ -117,6 +117,51 @@ app.post('/sendEmail', async (req, res) => {
 });
 
 
+app.post('/sendTest', async (req, res) => {
+    await getContacts()
+    try {
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'info@f1cityrestoration.com',
+                pass: 'fzbkndwuhxuhvvnu'
+            }
+        });   
+        const handlebarOptions = {
+            viewEngine: {
+                extName: '.handlebars',
+                partialsDir: path.resolve('./views'),
+                defaultLayout: false,
+            },
+            viewPath: path.resolve('./views'),
+            extName: '.handlebars',
+        };
+        transporter.use('compile', hbs(handlebarOptions));
+        const customerMailOptions = {
+            from: 'info@f1cityrestoration.com',
+            to: 'diego@f1cityrestoration.com', 
+            subject: 'Collaborative Opportunity: Enhancing Service Offerings with F1 City Restoration',
+            template: 'adjusters1',
+            context: { 
+                name: 'Diego',
+                lastName: 'Espinosa',
+                company: "Company Name", 
+                imgURL: `https://mailer-f1-city-restoration.vercel.app/image/diego@f1cityrestoration.com?campaign=Adjusters1`
+            }
+        };
+        try {
+            await transporter.sendMail(customerMailOptions);
+            res.status(200).send('TEST EMAIL SENT ');
+        } catch (error) {
+            console.error('ERROR SENDIN MAIL: ', error);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error sending emails');
+    }
+});
+
+
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
