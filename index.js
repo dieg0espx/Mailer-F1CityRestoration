@@ -84,7 +84,7 @@ app.post('/sendEmail', async (req, res) => {
 
         for (let i = 0; i < data.length; i += BATCH_SIZE) {
             const batch = data.slice(i, i + BATCH_SIZE);
-            for (let j = 0; j < batch.length; j++) {
+            for (let j = 5; j < batch.length; j++) {
                 const customerMailOptions = {
                     from: 'info@f1cityrestoration.com',
                     to: batch[j].email, // Corrected: Use batch[j] instead of data[i]
@@ -142,13 +142,13 @@ app.post('/sendTest', async (req, res) => {
         const customerMailOptions = {
             from: 'info@f1cityrestoration.com',
             to: 'diego@f1cityrestoration.com', 
-            subject: 'Collaborative Opportunity: Enhancing Service Offerings with F1 City Restoration',
-            template: 'adjusters1',
+            subject: 'Course of Construction Water Damage Mitigation Services & Expanded Construction Offerings',
+            template: 'newConstruction1',
             context: { 
                 name: 'Diego',
                 lastName: 'Espinosa',
                 company: "Company Name", 
-                imgURL: `https://mailer-f1-city-restoration.vercel.app/image/diego@f1cityrestoration.com?campaign=Adjusters1`, 
+                imgURL: `https://mailer-f1-city-restoration.vercel.app/image/diego@f1cityrestoration.com?campaign=NewConstruction1`, 
             }
         };
         try {
