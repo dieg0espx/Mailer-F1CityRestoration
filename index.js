@@ -142,13 +142,13 @@ app.post('/sendTest', async (req, res) => {
         const customerMailOptions = {
             from: 'info@f1cityrestoration.com',
             to: 'diego@f1cityrestoration.com', 
-            subject: 'Course of Construction Water Damage Mitigation Services & Expanded Construction Offerings',
-            template: 'newConstruction1',
+            subject: 'Collaborative Opportunity: Enhancing Service Offerings with F1 City Restoration',
+            template: 'brokers1',
             context: { 
                 name: 'Diego',
                 lastName: 'Espinosa',
                 company: "Company Name", 
-                imgURL: `https://mailer-f1-city-restoration.vercel.app/image/diego@f1cityrestoration.com?campaign=NewConstruction1`, 
+                imgURL: `https://mailer-f1-city-restoration.vercel.app/image/diego@f1cityrestoration.com?campaign=Brokers1`, 
             }
         };
         try {
