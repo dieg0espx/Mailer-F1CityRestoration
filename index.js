@@ -19,7 +19,7 @@ const apiURL = 'https://api.f1cityrestoration.com'
 let data;
 
 async function getContacts(){
-    await fetch(apiURL + '/getNewConstructions.php')
+    await fetch(apiURL + '/getBrokers.php')
     .then(result => result.json())
     .then(result => data = result)
 }
@@ -88,13 +88,13 @@ app.post('/sendEmail', async (req, res) => {
                 const customerMailOptions = {
                     from: 'info@f1cityrestoration.com',
                     to: batch[j].email,
-                    subject: 'Course of Construction Water Damage Mitigation Services & Expanded Construction Offerings',
-                    template: 'newConstruction1',
+                    subject: 'Collaborative Opportunity: Enhancing Service Offerings with F1 City Restoration',
+                    template: 'brokers1',
                     context: { 
-                        name: batch[j].name,
-                        lastName: batch[j].lastName,
+                        // name: batch[j].name,
+                        // lastName: batch[j].lastName,
                         // company: batch[j].company,
-                        imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${batch[j].email}?campaign=NewConstruction1`
+                        imgURL: `https://mailer-f1-city-restoration.vercel.app/image/${batch[j].email}?campaign=Brokers1`
                     }
                 };
                 try {
