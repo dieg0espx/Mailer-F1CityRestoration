@@ -141,7 +141,7 @@ app.post('/sendTest', async (req, res) => {
         transporter.use('compile', hbs(handlebarOptions));
         const customerMailOptions = {
             from: 'info@f1cityrestoration.com',
-            to: 'diego@f1cityrestoration.com', 
+            to: ['vanja@f1cityrestoration.com', 'diego@f1cityrestoration.com'], 
             subject: 'Exciting News From F1 City Group !',
             template: 'googleContacts',
             context: { 
