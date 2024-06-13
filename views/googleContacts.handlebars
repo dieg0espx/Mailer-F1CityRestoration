@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- <meta http-equiv="refresh" content="1"> --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title> Exciting News From F1 City Group ! </title>
+     <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color:#1f2533 ;
+            color: #333;
+            padding-top: 30px;
+        }
+        #top-cover {
+            width: 100%;
+            max-width: 1000px;
+            display: block;
+            margin: auto;
+        }
+
+        .content {
+            padding: 30px;
+            max-width: 1000px;
+            display: block;
+            margin: auto;
+           
+        }
+        .content p {
+            color: lightgray;
+            font-weight: 400; z-index: 999;
+        }
+
+        .content li {
+            color: lightgray;
+            font-weight: 400; z-index: 999;
+        }
+
+        #bg-graph {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 95%;
+            max-width: 1000px;
+            object-fit: cover; /* Ensure the image covers the entire area */
+            z-index: -1; /* Send the background image to the back */
+        }
+
+
+        .red {
+            color: #c62b33 !important;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .semi-bold {
+            font-weight: 600;
+        }
+        .lightBlue {
+            color: #74f4f6 !important;
+        }
+        .gray {
+            color: #7f7f7f !important;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .subtitle {
+            font-size: 25px;
+            margin: 20px 0;
+        }
+
+    
+        p {
+            margin: 10px 0;
+            font-size: 15px;
+        }
+
+        a {
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .button {
+            background-color: #c62b33;
+            color: white !important;
+            margin: 50px auto;
+            width: 40%;
+            min-width: 250px;
+            max-width: 400px;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 20px;
+        }
+
+        .logo {
+            display: block;
+            margin: auto;
+            width: 35%;
+            min-width: 280px;
+        }
+        .van {
+            display: block;
+            margin: 100px auto 50px auto;
+            width: 50%;
+            max-width: 660px;
+            min-width: 300px;
+        }
+        hr {
+            background-color: lightgray;
+            max-width: 80%;
+            min-width: 250px;
+        }
+        h2 {
+            font-size: 40px;
+            color: #1f2533;
+            text-align: center;
+        }
+        ul {
+            margin: 20px 0;
+            margin-left: -20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .other-services {
+            width: 90%;
+            margin: auto;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: row;
+            gap: 3%;
+            text-align: center;
+        }
+        .other-services img {
+            border-radius: 15px;
+            width: 90%;
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+        }
+        .other-services h3 {
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+        .other-services p {
+            font-size: 15px;
+        }
+
+        .other-services-mobile {
+            width: 90%;
+            margin: auto;
+            margin-bottom: 50px;
+            display: none;
+            gap: 3%;
+            text-align: center;
+        }
+        .other-services-mobile img {
+            border-radius: 15px;
+            width: 90%;
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            margin-top: 50px;
+        }
+        .other-services-mobile h3 {
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+        .other-services-mobile p {
+            font-size: 15px;
+            padding: 10px;
+        }
+
+
+
+        .socialMedia {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10%;
+            margin:auto;
+            width: fit-content;
+        }
+        .socialMedia img {
+            width: 50px;
+            display: block;
+            margin: 20px;
+            filter: invert(100%);
+        }
+
+
+        .footer {
+            background-color: #1f2533;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: right;
+        }
+        .footer img {
+            display:block;
+            width: 20%;
+            margin: auto auto auto 0;
+        }
+        .footer a {
+            text-align: right;
+            color: white;
+            display: block;
+        }
+
+        .footer-mobile {
+            background-color: #1f2533;
+            display: none;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: right;
+        }
+        .footer-mobile img {
+            display:block;
+            width: 50%;
+            margin: 30px auto;
+        }
+        .footer-mobile a {
+            text-align: center;
+            color: white;
+            display: block;
+            margin: 10px;
+        }
+
+
+
+
+
+        @media screen and (max-width:700px) {
+            h2 {
+                line-height: 45px;
+            }
+            .other-services {
+               display: none;
+            }
+            .other-services-mobile {
+               display: block;
+            }
+            .footer {
+                display: none;
+            }
+            .footer-mobile {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <img id="top-cover" src="https://f1cityrestoration.com/wp-content/uploads/2024/06/Untitled-design-28.png"/>
+    <img id="bg-graph" src="https://f1cityrestoration.com/wp-content/uploads/2024/06/p-2.png" />
+    <div class="content">
+        
+        <img src={{imgURL}}/>
+
+        <p> We are thrilled to announce that <a class="lightBlue bold" href="https://f1.city">F1 City Group</a> has grown! Through strategic acquisitions and ground-up developments, we've expanded into several new divisions, reinforcing our commitment to excellence, integrity, and client satisfaction across all our operations. </p>
+        
+        <p class="lightBlue">Our new divisions include: </p>
+        <li><b>MEP Services:</b> Offering full-scale mechanical, electrical, and plumbing solutions. SERVICING & NEW INSTALLATIONS.</li>
+
+        <li><b>Interior Finishing Services:</b> Specializing in high-quality interior finishes that bring your or your architect's dreams to life.</li>
+         
+        <li><b>Civil and Excavation Services:</b> Equipped to handle all levels of site preparation and civil construction needs.</li>
+
+        <p> Do you have upcoming projects in MEP, Interior Finishing or Civil that require competitive pricing? We're confident that our unique, streamlined approach will save you both time and money. At F1 City Group, we're not just building projects; we're building relationships.</p>
+
+        <p> Let us help you make your next project a success. Contact us today to learn more about our expanded capabilities and how we can assist with your specific needs. Thank you for your continued trust in F1 City Group. We look forward to achieving great things together! </p>     
+
+        
+        <div class="socialMedia">
+            <a href="https://www.facebook.com/f1cityrestoration"> <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/unnamed.png" /></a>
+            <a href="https://www.instagram.com/f1cityrestoration"> <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/unnamed-1.png" /></a>
+            <a href="https://www.youtube.com/@f1cityrestorationltd.883"> <img src="https://f1cityrestoration.com/wp-content/uploads/2024/05/unnamed-2.png" /></a>
+        </div>
+    
+        <div class="footer">
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/04/F1-City-Restoration-V2_clipped_rev_1-3.png" />
+            </div>
+            <div>
+                <a href="tel:6047867989"> (604) 786-7989</a>
+                <a class="lightBlue" href="mailto:info@f1cityrestoration.com"> info@F1CityRestoration.com</a>
+                <a href="https://f1cityrestoration.com"> F1CityRestoration.com </a>
+            </div>
+        </div>
+
+         <div class="footer-mobile">
+            <div>
+                <img src="https://f1cityrestoration.com/wp-content/uploads/2024/04/F1-City-Restoration-V2_clipped_rev_1-3.png" />
+            </div>
+            <div>
+                <a href="tel:6047867989"> (604) 786-7989</a>
+                <a class="lightBlue" href="mailto:info@f1cityrestoration.com"> info@F1CityRestoration.com</a>
+                <a href="https://f1cityrestoration.com"> F1CityRestoration.com </a>
+            </div>
+        </div>
+</div>
+</body>
+</html>
