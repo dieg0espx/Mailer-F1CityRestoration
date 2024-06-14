@@ -18,11 +18,11 @@ const apiURL = 'https://api.f1cityrestoration.com'
 
 let data;
 
-async function getContacts(){
-    await fetch(apiURL + '/getBrokers.php')
-    .then(result => result.json())
-    .then(result => data = result)
-}
+// async function getContacts(){
+//     await fetch(apiURL + '/getBrokers.php')
+//     .then(result => result.json())
+//     .then(result => data = result)
+// }
 
 
 app.get('/image/:email', async (req, res) => {
@@ -58,7 +58,7 @@ app.get('/image/:email', async (req, res) => {
 
   
 app.post('/sendEmail', async (req, res) => {
-    await getContacts()
+    // await getContacts()
     try {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -120,7 +120,7 @@ app.post('/sendEmail', async (req, res) => {
 
 
 app.post('/sendTest', async (req, res) => {
-    await getContacts()
+    // await getContacts()
     try {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -141,9 +141,9 @@ app.post('/sendTest', async (req, res) => {
         transporter.use('compile', hbs(handlebarOptions));
         const customerMailOptions = {
             from: 'info@f1cityrestoration.com',
-            // to: ['vanja@f1cityrestoration.com', 'diego@f1cityrestoration.com'], 
-            to: 'diego@f1cityrestoration.com',
-            subject: 'Exciting News From F1 City Group !',
+            to: ['vanja@f1cityrestoration.com', 'diego@f1cityrestoration.com'], 
+            // to: 'diego@f1cityrestoration.com',
+            subject: 'UPDATED - Exciting News From F1 City Group !',
             template: 'googleContacts',
             context: { 
                 name: 'Diego',
