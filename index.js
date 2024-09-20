@@ -141,10 +141,10 @@ app.post('/sendTest', async (req, res) => {
         transporter.use('compile', hbs(handlebarOptions));
         const customerMailOptions = {
             from: 'info@f1cityrestoration.com',
-            to: ['vanja@f1cityrestoration.com', 'diego@f1cityrestoration.com'], 
+            to: ['diego@f1cityrestoration.com', 'vanja@f1cityrestoration.com'], 
             // to: 'diego@f1cityrestoration.com',
-            subject: 'UPDATED - Exciting News From F1 City Group !',
-            template: 'googleContacts',
+            subject: 'ADVICI -  The Ultimate Property Damage Navigator app',
+            template: 'adviciIntroduction',
             context: { 
                 name: 'Diego',
                 lastName: 'Espinosa',
